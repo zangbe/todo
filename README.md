@@ -56,6 +56,8 @@
   - spring.datasource.url
    - 개발로 테스트시 url이 localhost여도 문제 없으나 docker로 실행시 실제 local pc ip 주소를 입력해야 DB 연결이 가능
 
+
+
  Gradle build 할때 lombok 에러 발생할 경우 (IntelliJ)
   - build.gradle에 compile "org.projectlombok:lombok:1.18.8" 추가
   - annotationProcessor("org.projectlombok:lombok:1.18.8")
