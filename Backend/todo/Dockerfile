@@ -12,12 +12,12 @@
 #FROM openjdk:8-jdk-alpine
 #COPY --from=builder build/libs/*.war app.war
 #
-#EXPOSE 9900
+#EXPOSE 33001
 #ENTRYPOINT ["java","-jar","app.war"]
 
 # 2번 dockerfile
 # gradlew build 후 war파일 docker로 실행할때
 FROM openjdk:8-jdk-alpine
 COPY build/libs/*.war app.war
-EXPOSE 9900
+EXPOSE 33001
 ENTRYPOINT ["java","-jar","app.war"]
