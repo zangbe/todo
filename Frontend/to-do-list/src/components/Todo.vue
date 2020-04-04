@@ -5,9 +5,12 @@
         <v-card>
           <v-card-title>
             Todo List
-            <!-- <Search ref="searchForm" :data.sync="options" /> -->
             <Search ref="searchForm" />
             <AddTodo />
+            <v-btn v-if="isFiltered" class="mr-2" color="success" @click="onClickResetFilterButton">Reset Filter</v-btn>
+            <v-btn color="warning" @click="onClickRefreshButton" >
+              <v-icon> mdi-refresh </v-icon>
+            </v-btn>
           </v-card-title>
           <v-data-table
             :headers="headers"
@@ -125,14 +128,9 @@ export default {
 
   watch: {
     options: {
-      async handler() {
+      handler() {
         this.SET_PAGING_VALUE(this.options);
-
-        if(this.isFiltered) {
-          await this.$refs.searchForm.onClickSearchButton(false);
-        } else {
-          await this.getTodoList();
-        }
+        this.getTodoListByCondition();
       },
       deep: true
     },
@@ -152,6 +150,30 @@ export default {
       'UPDATE_TODO',
       'DELETE_TODO'
     ]),
+
+    async getTodoListByCondition() {
+      if(this.isFiltered) {
+        await this.$refs.searchForm.onClickSearchButton(false);
+      } else {
+        await this.getTodoList();
+      }
+    },
+
+    async onClickRefreshButton() {
+      try {
+        await this.getTodoListByCondition();  
+      } catch (error) {
+        await this.SET_RESULT_DIALOG(this.getResultMsgObj({
+          msg: this.readFail,
+          color: 'error'
+        }));
+        this.$refs.searchForm.closeSnack();
+      }
+    },
+
+    onClickResetFilterButton() {
+      this.getTodoList();  
+    },
     
     async onClickSnackCloseButton() {
       await this.SET_SNACK(false);

@@ -126,12 +126,6 @@ export default {
         async onClickSearchButton(isCallByButton) {
 
             try {
-
-                console.log('isFiltered: ', this.isFiltered)
-                console.log('latestSearchConditionValue: ', this.latestSearchConditionValue)
-                console.log('latestSearchValue: ', this.latestSearchValue)
-                console.log('isCallByButton: ', isCallByButton);
-
                 if(!isCallByButton) {
                     this.searchValue = this.latestSearchValue;
                     this.searchConditionValue = this.latestSearchConditionValue;
