@@ -48,18 +48,18 @@ public class TodoServiceImpl implements TodoService {
 
         Page<Board> results = null;
 
-        switch (searchCondition) {
+        switch (SearchType.valueOf(searchCondition.toUpperCase())) {
 
-            case "content":
+            case CONTENT:
                 results = repo.findBoardByContentContaining(pageable, searchValue);
                 break;
 
-            case "isDone":
+            case ISDONE:
                 results = repo.findBoardByIsDoneEquals(pageable, Boolean.parseBoolean(searchValue));
                 break;
 
-            case "createAt":
-            case "updateAt":
+            case CREATEAT:
+            case UPDATEAT:
 
                 Timestamp startDate = Timestamp.valueOf(searchValue.concat(" 00:00:00"));
                 Timestamp endDate = Timestamp.valueOf(searchValue.concat(" 23:59:59"));
