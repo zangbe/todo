@@ -45,6 +45,7 @@ const mutations = {
             state.isFiltered = payload.isFiltered;
             state.latestSearchConditionValue = payload.searchConditionValue;
             state.latestSearchValue = payload.searchValue;
+            state.page = 1;
         } else {
             state.isFiltered = false;
         }
