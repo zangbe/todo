@@ -1,4 +1,4 @@
-# Todo List
+# Todo List - Single Page Application
 
 # 개발 환경
 
