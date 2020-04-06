@@ -45,10 +45,14 @@ const mutations = {
             state.isFiltered = payload.isFiltered;
             state.latestSearchConditionValue = payload.searchConditionValue;
             state.latestSearchValue = payload.searchValue;
-            state.page = 1;
+            // state.page = 1;
         } else {
             state.isFiltered = false;
         }
+    },
+
+    SET_CURRENT_PAGE(state, payload) {
+        state.page = payload.page;
     },
 
     SET_PAGING_VALUE(state, payload) {

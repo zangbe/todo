@@ -105,10 +105,19 @@ export default {
       deleteFail: 'deleteFail',
       updateSuccess: 'updateSuccess',
       deleteSuccess: 'deleteSuccess',
+      page: 'page'
     }),
     ...mapGetters({
         getResultMsgObj: 'getResultMsgObj'
-    })
+    }),
+    page: {
+      get() {
+        return this.$store.state.page
+      },
+      set(val){
+        this.SET_CURRENT_PAGE({page: val})
+      }
+    }
   },
 
   data: () => ({
@@ -122,7 +131,6 @@ export default {
       { text: '수정일', value: 'updateAt', class: 'font-weight-black'},
     ],
     options: {},
-    page: 1,
     pageCount: 0,
   }),
 
@@ -142,7 +150,8 @@ export default {
         'SET_RESULT_DIALOG',
         'SET_SNACK',
         'SET_FILTER',
-        'SET_PAGING_VALUE'
+        'SET_PAGING_VALUE',
+        'SET_CURRENT_PAGE'
     ]),
 
     ...mapActions([

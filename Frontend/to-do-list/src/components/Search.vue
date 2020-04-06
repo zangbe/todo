@@ -106,6 +106,7 @@ export default {
             'SET_RESULT_DIALOG',
             'SET_FILTER',
             'SET_SNACK',
+            'SET_CURRENT_PAGE'
         ]),
 
         ...mapActions([
@@ -123,10 +124,10 @@ export default {
             }, 3000);
         },
 
-        async onClickSearchButton(isCallByButton) {
+        async onClickSearchButton(isCallBySearchButton) {
 
             try {
-                if(!isCallByButton) {
+                if(!isCallBySearchButton) {
                     this.searchValue = this.latestSearchValue;
                     this.searchConditionValue = this.latestSearchConditionValue;
                 }
@@ -158,6 +159,10 @@ export default {
                         searchValue: this.searchValue, 
                         searchConditionValue: this.searchConditionValue
                     });
+
+                    if(isCallBySearchButton) {
+                        this.SET_CURRENT_PAGE({page: 1})
+                    }
                 } else {
                     await this.SET_RESULT_DIALOG(this.getResultMsgObj({
                         msg: this.readFail,
