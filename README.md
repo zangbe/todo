@@ -5,7 +5,7 @@
 ## Backend
 	JAVA 8
 	Spring Boot 2.2
-	Spring Data JPA - DB: MySQL (Local)
+	Spring Data JPA - DB: MySQL
 	Gradle
 	Docker
 	
