@@ -44,8 +44,7 @@
 			 
 		2번째 방법 (Docker)
 		-> Docker 설치 필요.
-		-> [Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows/ "windows")
-		-> windows - https://hub.docker.com/editions/community/docker-ce-desktop-windows/
+		-> windows - <https://hub.docker.com/editions/community/docker-ce-desktop-windows/>
 		-> mac - https://hub.docker.com/editions/community/docker-ce-desktop-mac/
 		-> linux(ubuntu) - curl -fsSL get.docker.com -o get-docker.sh 
 			1. Backend\todo 이동 후 터미널에서 gradlew build 명령어 실행
