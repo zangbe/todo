@@ -42,7 +42,11 @@
 			2. Backend\todo\build\libs 이동 후 터미널에서 java -jar [파일명].war 명령어 실행
 			3. localhost:33001 접속
 			 
-		2번째 방법 (docker)
+		2번째 방법 (Docker)
+		-> Docker 설치 필요.
+		-> windows - https://hub.docker.com/editions/community/docker-ce-desktop-windows/
+		-> mac - https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+		-> linux(ubuntu) - curl -fsSL get.docker.com -o get-docker.sh 
 			1. Backend\todo 이동 후 터미널에서 gradlew build 명령어 실행
 		    	2. docker build -t [태그명] . 명령어 입력 - ex) docker build -t todo-docker . (docker image 생성)
 			3. docker run -p 33001:33001 [태그명] 명령어 입력 - ex) docker run -p 33001:33001 todo-docker (docker container 실행)
